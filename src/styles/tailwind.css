@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Core Colors */
+    --color-background: #FAFAFA; /* gray-50 */
+    --color-foreground: #1E293B; /* slate-800 */
+    --color-border: #E2E8F0; /* slate-200 */
+    --color-input: #FFFFFF; /* white */
+    --color-ring: #2563EB; /* blue-600 */
+    
+    /* Card Colors */
+    --color-card: #FFFFFF; /* white */
+    --color-card-foreground: #1E293B; /* slate-800 */
+    
+    /* Popover Colors */
+    --color-popover: #FFFFFF; /* white */
+    --color-popover-foreground: #1E293B; /* slate-800 */
+    
+    /* Muted Colors */
+    --color-muted: #F1F5F9; /* slate-100 */
+    --color-muted-foreground: #64748B; /* slate-500 */
+    
+    /* Primary Colors */
+    --color-primary: #2563EB; /* blue-600 */
+    --color-primary-foreground: #FFFFFF; /* white */
+    
+    /* Secondary Colors */
+    --color-secondary: #64748B; /* slate-500 */
+    --color-secondary-foreground: #FFFFFF; /* white */
+    
+    /* Accent Colors */
+    --color-accent: #059669; /* emerald-600 */
+    --color-accent-foreground: #FFFFFF; /* white */
+    
+    /* Success Colors */
+    --color-success: #10B981; /* emerald-500 */
+    --color-success-foreground: #FFFFFF; /* white */
+    
+    /* Warning Colors */
+    --color-warning: #F59E0B; /* amber-500 */
+    --color-warning-foreground: #FFFFFF; /* white */
+    
+    /* Error/Destructive Colors */
+    --color-error: #EF4444; /* red-500 */
+    --color-error-foreground: #FFFFFF; /* white */
+    --color-destructive: #EF4444; /* red-500 */
+    --color-destructive-foreground: #FFFFFF; /* white */
+  }
+
+  .dark {
+    /* Core Colors - Dark Mode */
+    --color-background: #0F172A; /* slate-900 */
+    --color-foreground: #F8FAFC; /* slate-50 */
+    --color-border: #334155; /* slate-700 */
+    --color-input: #1E293B; /* slate-800 */
+    --color-ring: #3B82F6; /* blue-500 */
+    
+    /* Card Colors - Dark Mode */
+    --color-card: #1E293B; /* slate-800 */
+    --color-card-foreground: #F8FAFC; /* slate-50 */
+    
+    /* Popover Colors - Dark Mode */
+    --color-popover: #1E293B; /* slate-800 */
+    --color-popover-foreground: #F8FAFC; /* slate-50 */
+    
+    /* Muted Colors - Dark Mode */
+    --color-muted: #334155; /* slate-700 */
+    --color-muted-foreground: #94A3B8; /* slate-400 */
+    
+    /* Primary Colors - Dark Mode */
+    --color-primary: #3B82F6; /* blue-500 */
+    --color-primary-foreground: #FFFFFF; /* white */
+    
+    /* Secondary Colors - Dark Mode */
+    --color-secondary: #64748B; /* slate-500 */
+    --color-secondary-foreground: #FFFFFF; /* white */
+    
+    /* Accent Colors - Dark Mode */
+    --color-accent: #10B981; /* emerald-500 */
+    --color-accent-foreground: #FFFFFF; /* white */
+    
+    /* Success Colors - Dark Mode */
+    --color-success: #10B981; /* emerald-500 */
+    --color-success-foreground: #FFFFFF; /* white */
+    
+    /* Warning Colors - Dark Mode */
+    --color-warning: #F59E0B; /* amber-500 */
+    --color-warning-foreground: #1F2937; /* gray-800 */
+    
+    /* Error/Destructive Colors - Dark Mode */
+    --color-error: #F87171; /* red-400 */
+    --color-error-foreground: #1F2937; /* gray-800 */
+    --color-destructive: #F87171; /* red-400 */
+    --color-destructive-foreground: #1F2937; /* gray-800 */
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Typography Base Styles */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+  }
+
+  body, p, span, div {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+  }
+
+  .font-mono, .data-font {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 400;
+  }
+
+  /* Animation Base */
+  * {
+    transition-duration: 200ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Focus Styles */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2;
+  }
+
+  /* Scrollbar Styles */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-muted;
+  }
+::-webkit-scrollbar-thumb  {
+    @apply rounded-full;
+  }
+::-webkit-scrollbar-thumb:hover  {
+    
+  }
+}
+
+@layer components {
+  /* Shadow Utilities */
+  .shadow-soft {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .shadow-elevated {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Animation Utilities */
+  .animate-count {
+    animation: countUp 300ms ease-out;
+  }
+
+  @keyframes countUp {
+    from {
+      opacity: 0.7;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Loading Skeleton */
+  .skeleton {
+    @apply animate-pulse bg-muted rounded;
+  }
+
+  /* Floating Action Button */
+  .fab {
+    @apply fixed bottom-6 right-6 z-50 rounded-full shadow-elevated;
+  }
+
+  /* Data Display */
+  .currency {
+    @apply font-mono tabular-nums;
+  }
+
+  /* Micro-interaction States */
+  .interactive {
+    @apply transition-all duration-200 ease-out;
+  }
+
+  .interactive:hover {
+    @apply scale-[1.02] shadow-soft;
+  }
+
+  .interactive:active {
+    @apply scale-[0.98];
+  }
+}
